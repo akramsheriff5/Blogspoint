@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+
+<div class="container mt-5 shadow p-5 rounded service-item second-service" style="margin-top: 6rem!important;">
+    <h3 class="register-headi">Create a blog</h3>
+    <h6 class="text-danger my-2" id="alert-point"></h6>
+    {% comment %} <a href="{% url 'see_blog' %}" class="btn btn-warning">View Your blogs</a> {% endcomment %}
+
+    <form method="post" class="mt-2 pt-5 mb-5 pb-5 "
+          enctype="multipart/form-data" action="{% url 'add_blog' %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <label>Enter blog title</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="title">
+            </div>
+
+            
+            <div class="col-md-12 my-2">
+                <label>Upload Cover Image</label>
+                <input type="file" name="image" class="form-control" >
+            </div>
+
+            <div class="col-md-12 my-2">
+                {{form.media}}
+                {{form.as_p}}
+            </div>
+            
+
+
+        </div>
+
+        <button type="submit" class=" mt-4">Create Blog</button>
+
+    </form>
+
+</div>
+
+
+{% endblock %}

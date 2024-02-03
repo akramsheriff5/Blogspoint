@@ -1,0 +1,5 @@
+### Python template
+db.sqlite3
+blog/*
+*.pyc
+
